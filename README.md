@@ -1,5 +1,7 @@
 # CakePHP UIkit Helpers
 
-Some CakePHP Helpers for awesome HTML output, preformatted for UIkit.
+Some [CakePHP](http://www.cakephp.org/) Helpers for awesome HTML output, preformatted for [UIkit](http://getuikit.com/).
 
-## coming soon...
+This project is currently in development. At the moment there is a UIKitFormHelper available, which hase the basic functionality.
+
+More coming soon...
