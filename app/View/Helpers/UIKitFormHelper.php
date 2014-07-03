@@ -14,8 +14,8 @@ class UIKitFormHelper extends FormHelper
 	/**
 	 * This function adds some additional options to the defaul create-method.
 	 * It ensures that the classes for the form are set to
-	 * 		uk-form
-	 * 		uk-form-horizontal
+	 * 		- uk-form
+	 * 		- uk-form-horizontal
 	 *
 	 * @param $model
 	 * 			the Model the Form shold be created for
@@ -34,8 +34,8 @@ class UIKitFormHelper extends FormHelper
 	/**
 	 * This function adds some additional options to the defaul create-method.
 	 * It ensures that the classes for the form are set to
-	 * 		uk-form
-	 * 		uk-form-stacked
+	 * 		- uk-form
+	 * 		- uk-form-stacked
 	 *
 	 * @param $model
 	 * 			the Model the Form shold be created for
@@ -190,6 +190,7 @@ class UIKitFormHelper extends FormHelper
 	 * This function automatically adds a class "uk-form-danger", if a class is error.
 	 */
 	public function addClass($options = array(), $class = null, $key = 'class') {
+		// TODO edit
 		// Auto-Adding of ' uk-form-danger' class, if class is 'error'
 		if ($class === 'error')
 		{
