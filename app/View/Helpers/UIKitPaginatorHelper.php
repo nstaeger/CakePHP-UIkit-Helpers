@@ -7,7 +7,7 @@ App::uses('PaginatorHelper', 'View/Helper');
  * to use the basic UIKit styling for pagination.
  *
  * @author Nicolai Stäger
- * @version:2014-07-03
+ * @version:2014-07-14
  */
 class UIKitPaginatorHelper extends PaginatorHelper
 {
@@ -48,6 +48,38 @@ class UIKitPaginatorHelper extends PaginatorHelper
 	}
 	
 	
+	
+	/**
+	 * Generates a sorting link. Sets named parameters for the sort and direction. Handles
+	 * direction switching automatically.
+	 * 
+	 * Adds a UIkit Icon to the title depending on the sort-direction.
+	 */
+	public function sort($key, $title = null, $options = array()) {
+		$options = array_merge(array('model' => null), $options);
+		
+		$sortDir = $this->sortDir();
+		$sortKey = $this->sortKey($options['model']);
+		
+		if ($key === $sortKey) {
+			if (empty($title)) {
+				$title = $key;
+	
+				if (strpos($title, '.') !== false) {
+					$title = str_replace('.', ' ', $title);
+				}
+	
+				$title = __(Inflector::humanize(preg_replace('/_id$/', '', $title)));
+			}
+			$title .= ' <i class="uk-icon-sort-' . $sortDir . '"></i>';
+			$options['escape'] = false;
+		}
+		
+		return parent::sort($key, $title, $options);
+	}
+	
+	
+	
 	/**
 	 * Adding some default options
 	 * 		- tag => li
@@ -71,7 +103,6 @@ class UIKitPaginatorHelper extends PaginatorHelper
 		
 		return parent::first($first, $new_options);
 	}
-	
 	
 	/**
 	 * Adding some default options
@@ -118,7 +149,6 @@ class UIKitPaginatorHelper extends PaginatorHelper
 		return parent::prev($title, $new_options, $disabledTitle, $new_disabledOptions);
 	}
 	
-	
 	/**
 	 * Adding some default options
 	 * 		- before => ''
@@ -145,7 +175,6 @@ class UIKitPaginatorHelper extends PaginatorHelper
 		
 		return parent::numbers($new_options);
 	}
-	
 	
 	/**
 	 * Adding some default options
@@ -192,7 +221,6 @@ class UIKitPaginatorHelper extends PaginatorHelper
 		
 		return parent::next($title, $new_options, $disabledTitle, $new_disabledOptions);
 	}
-	
 	
 	/**
 	 * Adding some default options
