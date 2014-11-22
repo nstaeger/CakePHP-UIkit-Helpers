@@ -6,5 +6,3 @@ This project is currently in development. At the moment there are the following 
 
 - UIKitFormHelper
 - UIKitPaginatorHelper
-
-More coming soon...
